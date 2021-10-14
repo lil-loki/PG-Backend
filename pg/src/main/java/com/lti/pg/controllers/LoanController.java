@@ -41,8 +41,6 @@ public class LoanController {
     public String deleteLoanId(@PathVariable int id) {
         return id +"  is deleted";
 
-    }
-
-    
+    }    
     
 }
