@@ -1,8 +1,19 @@
 package com.lti.pg.beans;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="LOGIN")
 public class Login {
 
+	@Id
+	@Column(name="ACC_NO")
 	private int Accno;
+	
+	@Column(name="PASSWORD")
 	private String Password;
 
 	public Login() {
