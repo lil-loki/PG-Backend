@@ -1,46 +1,65 @@
 package com.lti.pg.beans;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Test1212")
+@Table(name = "LOAN_APPROVAL")
 public class LoanApproval {
 
     @Id
-    @Column(name = "StatusID")
+    @GeneratedValue
+    @Column(name = "STATUS_ID")
     private int StatusID;
 
-    @Column(name = "LoanID")
+    @Column(name = "LOAN_ID")
     private int LoanID;
 
-    @Column(name = "Eligibility")
+    @Column(name = "ELIGIBILITY")
     private String Eligibility;
 
-    @Column(name = "AadharApproval")
+    @Column(name = "AADHAR_APPROVAL")
     private String AadharApproval;
 
-    @Column(name = "PANApproval")
+    @Column(name = "PAN_APPROVAL")
     private String PANApproval;
 
-    @Column(name = "PhotoApproval")
+    @Column(name = "PHOTO_APPROVAL")
     private String PhotoApproval;
 
-    @Column(name = "SalaryApproval")
+    @Column(name = "SALARY_APPROVAL")
     private String SalaryApproval;
 
-    @Column(name = "Status")
+    @Column(name = "STATUS")
     private String Status;
 
-    @Column(name = "Reason")
+    @Column(name = "REASON")
     private String Reason;
+    
+    
 
     public LoanApproval() {
 
     }
-
+ 
+    private LoanApplication lApplication;
+    @OneToOne(targetEntity=LoanApplication.class,cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+    @JoinColumn(name="LoanID")
+    public LoanApplication getlApplication() {
+    	 return lApplication;
+    }
+    
+    public void setlApplication(LoanApplication lApplication) {
+    	this.lApplication= lApplication;
+    }
+    
     public LoanApproval(int StatusID, int LoanID, String Eligibility, String AadharApproval, String PANApproval,
             String PhotoApproval, String SalaryApproval, String Status, String Reason) {
         this.StatusID = StatusID;
@@ -188,6 +207,8 @@ public class LoanApproval {
     }
 
 }
+
+
 
 /*
 Enter Table Creation Script

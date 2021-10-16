@@ -10,21 +10,19 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = " USER_DETAILS")
-@NamedQuery(name = "UserDetails.findAll", query = "SELECT u FROM UserDetails u")
+@Table(name =" USER_DETAILS")
 public class UserDetails implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@Column(name = "ACC_NO")
 	private int AccNo;
-	@GeneratedValue(strategy = GenerationType.AUTO.SEQUENCE, generator = "accno_generator")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "accno_generator")
 	@SequenceGenerator(name = "accno_generator", initialValue = 1000, allocationSize = 1, sequenceName = "accno_seq")
 	@Column(name = "NAME")
 	private String Name;
@@ -63,7 +61,7 @@ public class UserDetails implements Serializable {
 	private double Salary;
 
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinColumn(name = "ACC_NO", referencedColumnName = "ACC_NO")
+	@JoinColumn(name = "ACC_NO", referencedColumnName = "ACC_NO") 
 	private LoanApplication loanapplication;
 
 	public UserDetails() {
@@ -208,7 +206,7 @@ public class UserDetails implements Serializable {
 }
 
 /*
-Enter Table Creation Script
+// Enter Table Creation Script
 
 
-*/
+// */
