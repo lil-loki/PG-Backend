@@ -15,7 +15,11 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
+<<<<<<< HEAD
 @Table(name =" USER_DETAILS")
+=======
+@Table(name = " USER_DETAILS")
+>>>>>>> d0b9c1f2f0af1e20fd01c670bdbcdb693e19a07a
 public class UserDetails implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -24,6 +28,7 @@ public class UserDetails implements Serializable {
 	private int AccNo;
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "accno_generator")
 	@SequenceGenerator(name = "accno_generator", initialValue = 1000, allocationSize = 1, sequenceName = "accno_seq")
+	
 	@Column(name = "NAME")
 	private String Name;
 
@@ -60,9 +65,18 @@ public class UserDetails implements Serializable {
 	@Column(name = "SALARY")
 	private double Salary;
 
+<<<<<<< HEAD
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "ACC_NO", referencedColumnName = "ACC_NO") 
 	private LoanApplication loanapplication;
+=======
+	
+	  @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	  
+	  @JoinColumn(name = "ACC_NO", referencedColumnName = "ACC_NO") private
+	  LoanApplication loanapplication;
+	 
+>>>>>>> d0b9c1f2f0af1e20fd01c670bdbcdb693e19a07a
 
 	public UserDetails() {
 
