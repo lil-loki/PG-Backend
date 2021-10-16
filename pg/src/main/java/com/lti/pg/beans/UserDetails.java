@@ -17,7 +17,6 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = " USER_DETAILS")
-@NamedQuery(name = "UserDetails.findAll", query = "SELECT u FROM UserDetails u")
 public class UserDetails implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -26,6 +25,7 @@ public class UserDetails implements Serializable {
 	private int AccNo;
 	@GeneratedValue(strategy = GenerationType.AUTO.SEQUENCE, generator = "accno_generator")
 	@SequenceGenerator(name = "accno_generator", initialValue = 1000, allocationSize = 1, sequenceName = "accno_seq")
+	
 	@Column(name = "NAME")
 	private String Name;
 
@@ -62,9 +62,12 @@ public class UserDetails implements Serializable {
 	@Column(name = "SALARY")
 	private double Salary;
 
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinColumn(name = "ACC_NO", referencedColumnName = "ACC_NO")
-	private LoanApplication loanapplication;
+	
+	  @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	  
+	  @JoinColumn(name = "ACC_NO", referencedColumnName = "ACC_NO") private
+	  LoanApplication loanapplication;
+	 
 
 	public UserDetails() {
 
