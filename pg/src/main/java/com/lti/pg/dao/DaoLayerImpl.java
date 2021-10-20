@@ -53,7 +53,7 @@ public class DaoLayerImpl implements DaoLayer{
 	@Override
 	@Transactional
 	public UserTable findUserByUserID(long userId) {
-		UserTable res = em.find(UserTable.class, userId);
+		UserTable res = em.find(UserTable.class, userId);		
 		return res;
 	}
 	

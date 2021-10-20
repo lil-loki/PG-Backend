@@ -56,6 +56,12 @@ public class UserController {
 			loginStatus.setMessage("Login Successful");
 			loginStatus.setUserId(user.getUserId());
 			loginStatus.setUserNameFirst(user.getUserNameFirst());
+			loginStatus.setUserAddress(user.getUserAddress());
+			loginStatus.setUserAge(user.getUserAge());
+			loginStatus.setUserEmail(user.getUserEmail());
+			loginStatus.setUserGender(user.getUserGender());
+			loginStatus.setUserZip(user.getUserZip());
+			loginStatus.setUserNameLast(user.getUserNameLast());
 			return loginStatus;
 		}
 		catch(CustomerServiceException e) {
@@ -108,7 +114,13 @@ public class UserController {
 
 	public static class LoginStatus extends Status {
 		private long userId;
-		private String name;
+		private String Fname;
+		private String Lname;
+		private String userAddress;
+		private int userAge;
+		private String userEmail;
+		private String userGender;
+		private String userZip;
 		
 		public long getuserId() {
 			return userId;
@@ -117,10 +129,66 @@ public class UserController {
 			this.userId = userId;
 		}
 		public String getUserNameFirst() {
-			return name;
+			return Fname;
 		}
-		public void setUserNameFirst(String name) {
-			this.name = name;
+		public void setUserNameFirst(String Fname) {
+			this.Fname = Fname;
+		}
+		public String getUserNameLast() {
+			return Lname;
+		}	
+	
+		public void setUserNameLast(String Lname) {
+			this.Lname = Lname;
+		}
+	
+	
+		public String getUserAddress() {
+			return userAddress;
+		}
+	
+	   
+		public void setUserAddress(String userAddress) {
+			this.userAddress = userAddress;
+		}
+	
+	
+		public int getUserAge() {
+			return userAge;
+		}
+	
+	  
+		public void setUserAge(int userAge) {
+			this.userAge = userAge;
+		}
+	
+	
+		public String getUserEmail() {
+			return userEmail;
+		}
+	
+	
+		public void setUserEmail(String userEmail) {
+			this.userEmail = userEmail;
+		}
+	
+	  
+		public String getUserGender() {
+			return userGender;
+		}
+	
+	 
+		public void setUserGender(String userGender) {
+			this.userGender = userGender;
+		}
+	
+	
+		public String getUserZip() {
+			return userZip;
+		}
+	
+		public void setUserZip(String userZip) {
+			this.userZip = userZip;
 		}
 	}
 	
@@ -172,4 +240,10 @@ public static class Status {
 }
 
 	
+
+
+
+ 
+   
+
 }
