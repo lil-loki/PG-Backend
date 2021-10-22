@@ -51,16 +51,16 @@ class PgApplicationTests {
 	void registerUser() {
 
 		UserTable user=new UserTable();
-		user.setUserId(2);
-		user.setUserNameFirst("Min");
-		user.setUserNameLast("Yoongi");
+		user.setUserId(200);
+		user.setUserNameFirst("MS");
+		user.setUserNameLast("Dhoni");
 		user.setUserNameMiddle("");
 		user.setUserAge(26);
 		user.setUserGender("Male");
-		user.setUserAddress("Daegu, South Korea");
-		user.setUserEmail("minyoongi@gmail.com");
-		user.setUserPass("yoonmin");
-		user.setUserZip("262405");
+		user.setUserAddress("Ranchi,jarkhand");
+		user.setUserEmail("msdhoni@gmail.com");
+		user.setUserPass("ziva123");
+		user.setUserZip("123123");
 		user.setUserType("New");
 		repo.registerUser(user);
 	}
@@ -75,9 +75,9 @@ class PgApplicationTests {
 	void registerAdmin() {
 		Admin admin = new Admin();
 		admin.setAdminId(1001);
-		admin.setAdminEmail("kavaK@gmail.com");
-		admin.setAdminNameFirst("KavitaJi");
-		admin.setAdminNameLast("Karki");
+		admin.setAdminEmail("123@gmail.com");
+		admin.setAdminNameFirst("admin");
+		admin.setAdminNameLast("123123");
 		admin.setAdminGender("Female");
 		admin.setAdminPass("abcd1234");
 		admin.setAdminAge(21);
@@ -137,16 +137,17 @@ class PgApplicationTests {
 			vehicle.setOnRoadPrice(760000);
 			System.out.println(repo.registerVehicle(vehicle));
 		}
+
+
+
+	
+	@Test
+	void findUserIdbyEmailandPass() {
+		long id = repo.findUserIdByEmailAndPassword("msdhoni@gmail.com", "ziva123");
+		System.out.println("the user id is: " +id);
 	}
-
-
 	
-// //	@Test
-// //	void findUserIdbyEmailandPass() {
-// //		long id = repo.findUserIdByEmailAndPassword("babyg@gmail.com", "Aditya@123yoonmin");
-// //		System.out.println("the user id is: " +id);
-// //	}
-	
+}
 // 	//-------------------------------------------------------------
 // 	//ADMIN OPERATIONS
 	
