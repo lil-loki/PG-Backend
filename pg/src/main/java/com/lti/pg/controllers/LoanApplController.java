@@ -1,5 +1,6 @@
 package com.lti.pg.controllers;
 
+import java.io.IOException;
 import java.util.List;
 
 import com.lti.pg.beans.*;
@@ -13,7 +14,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 @CrossOrigin(origins="*")
 @RestController
@@ -98,6 +101,11 @@ public class LoanApplController {
 	{	
 		return userService.viewPendingUsers();
 
+	}
+
+	@PostMapping("/upload")
+	public void upload(@RequestParam MultipartFile file) throws IOException {
+		userService.upload(file);
 	}
 
     public static class LoginStatus extends Status {

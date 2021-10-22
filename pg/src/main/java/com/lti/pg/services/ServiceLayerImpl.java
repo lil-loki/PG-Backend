@@ -1,5 +1,6 @@
 package com.lti.pg.services;
 
+import java.io.IOException;
 import java.util.List;
 
 import com.lti.pg.beans.Account;
@@ -13,6 +14,7 @@ import com.lti.pg.exception.CustomerServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 
 @Service
@@ -121,6 +123,12 @@ public class ServiceLayerImpl implements ServiceLayer {
 	@Override
 	public List<Loan> viewLoanStatus(long userId) {
 		return repointerface.getLoanStatusByUserId(userId);
+	}
+
+	@Override
+	public void upload(MultipartFile file) throws IOException {
+		repointerface.upload(file);
+		
 	}
 
 

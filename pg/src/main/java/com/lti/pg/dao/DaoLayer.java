@@ -1,6 +1,11 @@
 package com.lti.pg.dao;
 
 import com.lti.pg.beans.*;
+
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 import java.util.List;
 
 public interface DaoLayer {
@@ -22,6 +27,7 @@ public interface DaoLayer {
 	public void removeLoanById(long loanId);	
 	public Loan retrieveLoanByloanType(String loan);	
 	public void removeLoanByApplicationStatus(String applicationStatus);
+	public void upload(@RequestParam MultipartFile file) throws IOException;
 
 	//----------------------Account Methods----------------------------------------------------
     public String registerAccount(Account account); //create account

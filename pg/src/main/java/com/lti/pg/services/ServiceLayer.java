@@ -1,8 +1,12 @@
 package com.lti.pg.services;
 
+import java.io.IOException;
 import java.util.List;
 
 import com.lti.pg.beans.*;
+
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 public interface ServiceLayer {
     
@@ -33,4 +37,6 @@ public interface ServiceLayer {
 	void rejectLoan(long loanId);
 
 	List<Loan> viewLoanStatus(long userId);
+
+	public void upload(@RequestParam MultipartFile file) throws IOException;
 }

@@ -1,5 +1,7 @@
 package com.lti.pg.dao;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -13,6 +15,7 @@ import com.lti.pg.beans.UserTable;
 import com.lti.pg.beans.Vehicle;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.web.multipart.MultipartFile;
 
 @Repository
 public class DaoLayerImpl implements DaoLayer{
@@ -261,6 +264,11 @@ public class DaoLayerImpl implements DaoLayer{
 				.createQuery("select count(a.accNumber) from Account a where a.accNumber = :em ")
 				.setParameter("em", accNumber)
 				.getSingleResult() == 1 ? true : false;
+	}
+
+	@Override
+	public void upload(MultipartFile file) throws IOException {
+		 file.transferTo(new File("F:\\Work\\Project_Gladiator\\Documents\\"+file.getOriginalFilename()));
 	}
     
     
